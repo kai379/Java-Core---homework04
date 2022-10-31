@@ -12,7 +12,7 @@ public class Main {
         int outputVariable = 1;
 
         System.out.println("Здравствуте, выберите номер игры: \n1) Угадайте загаданное число от 0 до 9\n2) Угадать загаданное слово");
-        System.out.println("0 - Выход из программы");
+        System.out.println("0) Выход из программы");
 
         do {
             if(scanner.hasNextInt()){
@@ -58,18 +58,20 @@ public class Main {
             System.out.println("Загадано число от 0 до 10. Попробуйте его угадать ;)");
             int number = 0;
             Random random = new Random();
-            number = random.nextInt(11);
+            number = random.nextInt(10);
 
             Scanner scanner = new Scanner(System.in);
 
-            //Число от пользователя
-            scanner.hasNextInt();
-            int numberAnswer = scanner.nextInt();
+
 
             //Счётчик попыток
             int counter = 0;
 
             do{
+                //Число от пользователя
+                scanner.hasNextInt();
+                int numberAnswer = scanner.nextInt();
+
                 if(number > numberAnswer){
                     System.out.println("Ваше число меньше загаданного");
                     counter++;
@@ -94,13 +96,16 @@ public class Main {
             System.out.println("Хотите сыграть ещё раз?\n1 - для повтора\n0 - для выхода в главное меню");
 
             do{
+                scanner.nextLine();
                 if(scanner.hasNextInt()){
                     switch (numberForReload = scanner.nextInt()){
                         case 0:
                             outputVariableForCase1 = 0;
+                            scanner.nextLine();
                             break;
                         case 1:
                             outputVariableForCase1 = 1;
+                            scanner.nextLine();
                             break;
                         default:
                             System.out.println("Такого варианта нет. Повторите попытку.");
